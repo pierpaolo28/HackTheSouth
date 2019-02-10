@@ -13,7 +13,12 @@ cap = cv2.VideoCapture(0)
 #                    parity=serial.PARITY_NONE,
 #                    stopbits=serial.STOPBITS_ONE,
 #                    bytesize=serial.EIGHTBITS
-#                    )                 
+#                    )       
+port = serial.Serial()
+port.port = '/dev/ttyUSB1'
+port.baud = 9600        
+port.open()  
+time.sleep(2)
 
 def PolyArea(x,y):
     retval = 0.5*np.abs(np.dot(x,np.roll(y,1))-np.dot(y,np.roll(x,1)))
@@ -39,6 +44,7 @@ def gen_string(ids, corners):
             c = int(area_sq(corners[i][0])) & 0xff
             # print(a, b, c)
             final.extend([91, a, 44, b, 44, c, 93])
+            print(2.0 * b / 255.0 - 1.0)
     return bytes(final)                    
 
 while(True):
@@ -58,11 +64,14 @@ while(True):
     # [tag_id, x_pos, area]
     
     corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
-    port = serial.Serial()
-    port.port = '/dev/ttyACM0'
-    port.baud = 9600
-    with port as ser:
-        ser.write(gen_string(ids, corners))
+    print(ids)
+    #port = serial.Serial()
+    #port.port = '/dev/ttyACM0'
+    #port.baud = 9600
+    #with port as ser:
+    #    ser.write(gen_string(ids, corners))
+    port.write(gen_string(ids, corners))
+    time.sleep(0.001)
 
     gray = aruco.drawDetectedMarkers(gray, corners)
 
@@ -72,6 +81,6 @@ while(True):
         break
 
 # When everything done, release the capture
-#ser.close()
+port.close()
 cap.release()
 cv2.destroyAllWindows()
