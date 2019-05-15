@@ -17,6 +17,6 @@ The raspberry-pi is used to perfect the voice recognition of the system as well 
 the servo motors and serial communications. Although the main chassis of the robot was built using the inventor fit for RedBot, 3D 
 printed parts were tailored for the task specifications. <br>
 
-[![Video Link]](https://www.youtube.com/embed/wRi87pQcaOA?rel=0)
+[Video Link](https://www.youtube.com/embed/wRi87pQcaOA?rel=0)
 
 
