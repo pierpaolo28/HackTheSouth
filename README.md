@@ -1,5 +1,4 @@
 # Hack the South - Best Hardware Design Prize Winner
-University of Southampton - HackTheSouth - Hackaton Code <br>
 
 This project consisted of designing and building a voice-activated autonomous robot. The intuitiveness of our robot made it ideal for general public use. This robot, was in fact designed to accomplish tasks able to bring great value to both general users and particularly assisting impaired people. 
 
@@ -11,6 +10,6 @@ The program for the robot is executed on a raspberry pi coupled with an Arduino 
 
 The raspberry-pi is used to perfect the voice recognition of the system as well as the field vision. The Arduino board is used to power the servo motors and serial communications. Although the main base of the robot was built using the “inventor fit” for RedBot, 3D printed parts were tailored for the task specifications. <br>
 
-[Video Link](https://pierpaolo28.github.io/Projects/project2.html)
+[Video Demonstration available on my personal website](https://pierpaolo28.github.io/Projects/project2.html)
 
 
